@@ -1,0 +1,21 @@
+@mixin text($size, $line-height: null, $style: null) {
+	font-size: #{$size + px};
+	line-height: #{$line-height + px};
+	font-style: $style;
+}
+
+@mixin gilroy-bold {
+	font-family: Gilroy;
+	font-weight: 700;
+}
+
+@mixin gilroy-medium {
+	font-family: Gilroy;
+	font-weight: 400;
+}
+
+@mixin adaptive-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$maxWidth: $maxWidth - 320;
+	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
